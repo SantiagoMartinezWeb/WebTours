@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+		<title>Ischigualasto Tours - Explore the Valley of the Moon with Dr. Ricardo Martinez</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<!-- SEO Meta Tags -->
+		<meta name="description" content="Join Dr. Ricardo Martinez, renowned paleontologist, for exclusive tours of Ischigualasto Provincial Park. Discover dinosaur fossils, explore Triassic landscapes, and experience the Valley of the Moon with an expert guide." />
+		<meta name="keywords" content="Ischigualasto tours, Valley of the Moon, dinosaur fossils, paleontology tours, Argentina UNESCO sites, Dr. Ricardo Martinez, Triassic era, Eoraptor lunensis, Herrerasaurus" />
+		<meta name="author" content="Dr. Ricardo N. Martinez" />
+		
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:title" content="Ischigualasto Tours - Explore the Valley of the Moon" />
+		<meta property="og:description" content="Experience exclusive paleontological tours in Ischigualasto Provincial Park with Dr. Ricardo Martinez, expert paleontologist with 30+ years of experience." />
+		<meta property="og:image" content="images/dinosaur-skull.png" />
+		<meta property="og:url" content="https://www.ischigualasto.com.ar" />
+		<meta property="og:type" content="website" />
+		
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Ischigualasto Tours - The Cradle of Dinosaurs" />
+		<meta name="twitter:description" content="Discover the birthplace of dinosaurs with expert paleontologist Dr. Ricardo Martinez. UNESCO World Heritage Site tours available." />
+		<meta name="twitter:image" content="images/dinosaur-skull.png" />
+		
+		<!-- Canonical URL -->
+		<meta rel="canonical" href="https://www.ischigualasto.com.ar" />
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="images/dinosaur-skull.png" />
+		<link rel="apple-touch-icon" href="images/dinosaur-skull.png" />
+		
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "TourismService",
+			"name": "Ischigualasto Tours",
+			"description": "Expert-guided paleontological tours in Ischigualasto Provincial Park, UNESCO World Heritage Site.",
+			"provider": {
+				"@type": "Person",
+				"name": "Dr. Ricardo N. Martinez",
+				"jobTitle": "Paleontologist",
+				"description": "Paleontologist with over 30 years of experience in Ischigualasto"
+			},
+			"areaServed": {
+				"@type": "Place",
+				"name": "Ischigualasto Provincial Park",
+				"description": "UNESCO World Heritage Site known as the Valley of the Moon",
+				"address": {
+					"@type": "PostalAddress",
+					"addressCountry": "Argentina"
+				}
+			},
+			"offers": {
+				"@type": "Offer",
+				"description": "Customizable paleontological tours",
+				"availability": "https://schema.org/InStock"
+			}
+		}
+		</script>
+	</head>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			emailjs.init("T13eGVBhC2q_WgDuM"); // Replace with your EmailJS User ID
+	
+			document.getElementById("contact-form").addEventListener("submit", function (event) {
+				event.preventDefault();
+	
+				const submitButton = document.getElementById("enviar");
+				submitButton.disabled = true; // Disable button while sending
+	
+				const params = {
+					from_name: document.getElementById("name").value,
+					user_email: document.getElementById("email").value,
+					message: document.getElementById("message").value
+				};
+	
+				// Show loading alert
+				Swal.fire({
+					title: "Sending...",
+					text: "Please wait while we send your message.",
+					icon: "info",
+					theme:"dark",
+					allowOutsideClick: false,
+					showConfirmButton: false,
+					willOpen: () => {
+						Swal.showLoading();
+					}
+				});
+	
+				emailjs.send("service_chjksfb", "template_iqyfin5", params)
+					.then(function () {
+						Swal.fire({
+							title: "Message Sent!",
+							theme:"dark",
+							text: "Thank you for reaching out. We will get back to you soon.",
+							icon: "success",
+							confirmButtonText: "OK"
+						});
+						document.getElementById("contact-form").reset();
+					})
+					.catch(function (error) {
+						Swal.fire({
+							theme:"dark",
+							title: "Error",
+							text: "Failed to send the message. Please try again.",
+							icon: "error",
+							confirmButtonText: "Close"
+						});
+					})
+					.finally(() => {
+						submitButton.disabled = false; // Re-enable button after sending
+					});
+			});
+	
+			// Interactive Gallery
+			const gridItems = document.querySelectorAll(".grid-item");
+	
+			gridItems.forEach(item => {
+				item.addEventListener("click", function (event) {
+					event.stopPropagation();
+	
+					if (this.classList.contains("expanded")) {
+						this.classList.remove("expanded");
+					} else {
+						document.querySelectorAll(".expanded").forEach(expandedItem => {
+							expandedItem.classList.remove("expanded");
+						});
+	
+						this.classList.add("expanded");
+					}
+				});
+			});
+	
+			document.addEventListener("click", function () {
+				document.querySelectorAll(".expanded").forEach(expandedItem => {
+					expandedItem.classList.remove("expanded");
+				});
+			});
+		});
+	</script>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<img src="images/dinosaur-skull.png"  alt="Ischigualasto Tours Logo - Dinosaur Skull" class="icono">
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Welcome to Ischigualasto Provincial Park</h1>
+								<h1>The Cradle of Dinosaurs</h1>
+								<p>Explore the Valley of the Moon with Dr. Ricardo N. Martinez, a paleontologist with over 30 years of experience in Ischigualasto. Discover the Triassic era, walk in the footsteps of the first dinosaurs, and uncover the secrets of this UNESCO World Heritage Site.</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#intro" title="Introduction to Ischigualasto Tours">Intro</a></li>
+								<li><a href="#Tour" title="Our Tour Options">Tours</a></li>
+								<li><a href="#about" title="About Dr. Ricardo Martinez">About Me</a></li>
+								<li><a href="#gallery" title="Photo Gallery">Gallery</a></li>
+								<li><a href="#contact" title="Contact Us">Contact</a></li>
+								
+							</ul>
+						</nav>
+					</header>
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="intro">
+								<h3 class="">Explore Ischigualasto Provincial Park</h3>
+								<h3 class="">The Cradle of Dinosaurs</h3>
+								<span class="image main"><img src="images/pinceleando.jpg"  alt="Ischigualasto Provincial Park landscape" loading="lazy"/></span>
+								<p>Step into a world where time stands still, and the secrets of the Triassic era come to life. I am Dr. Ricardo Néstor Martinez, a paleontologist with over 30 years of experience studying the fossils and geology of Ischigualasto, a UNESCO World Heritage Site and one of the most important paleontological treasures on Earth.</p>
+								<p>Known as the "Valley of the Moon," Ischigualasto is a window into the past, offering a glimpse of the dawn of the dinosaur era. Here, 230 million years ago, the first dinosaurs, such as Eoraptor lunensis and Herrerasaurus ischigualastensis, roamed alongside other fascinating creatures that shaped the course of life on our planet. My work has been instrumental in uncovering these ancient stories, with discoveries that have been published in leading scientific journals like Nature and Science.</p>
+								<p>As your guide, I invite you to explore this extraordinary landscape with me. Through my scientifically enriched tours, you will:</p>
+								<ul>
+									<li>Walk in the footsteps of the earliest dinosaurs.</li>
+									<li>Discover the geology and fossils that make Ischigualasto a global landmark.</li>
+									<li>Learn about the groundbreaking research that has transformed our understanding of the Triassic world.</li>
+								</ul>
+
+								<p>Whether you are a curious traveler, a student, or a fellow researcher, my tours are tailored to provide an unforgettable experience. Together, we will uncover the mysteries of Ischigualasto, from its iconic rock formations to the ancient life that once thrived here.</p>
+								<p>Join me on a journey through time, where science and adventure meet in one of the most awe-inspiring places on Earth. Let’s explore the wonders of Ischigualasto together!</p>
+							</article>
+
+						<!-- Work -->
+							<article id="Tour" >
+								<h2 class="major">Tours</h2>
+								<span class="image main"><img src="images/IMG_7386.JPG" alt="" /></span>
+								<p>The tour offers a unique opportunity to explore the park’s hidden gems and learn about the origins of dinosaurs in an interactive and personalized way. </p>
+								<h2>What You’ll Experience  </h2>
+								<p>Our scientific tours are designed to provide an immersive and educational experience. Here’s what you can expect: </p>
+								<ol>
+									<li><b>Discover Iconic Fossil Sites: </b>Visit the exact locations where emblematic fossils like Eoraptor lunensis and Herrerasaurus ischigualastensis were discovered.</li>
+									<li><b>Explore Unique Geoforms: </b>Marvel at Ischigualasto’s stunning rock formations, shaped by millions of years of geological processes. </li>
+									<li><b>Access Hidden Areas: </b>Venture into remote and lesser-known parts of the park, away from the usual paths.  </li>
+									<li><b>Learn to Identify Fossils: </b>Gain hands-on experience in recognizing and interpreting fossils in the field.  </li>
+									<li><b>Step into a Paleontologist’s Shoes: </b>Understand the daily work of a paleontologist, from excavation techniques to scientific documentation.</li>
+									<li><b>Understand Geology and Paleontology: Learn key concepts about the Earth’s history and the evolution of life.  </b></li>
+									<li><b>Uncover the Origins of Dinosaurs: </b>Dive into the fascinating story of how dinosaurs emerged and dominated the Triassic world. </li>
+								</ol>
+								<h2>Why Choose Our Tours?  </h2>
+								<ul>
+									<li><strong>Expert Guidance:</strong> Led by Dr. Ricardo N. Martinez, a leading authority on Ischigualasto’s fossils and geology.</li>
+									<li><strong>Personalized Experience:</strong> Tours are tailored to your interests, preferences, and schedule.</li>
+									<li><strong>Exclusive Access:</strong> Explore areas of the park that are off-limits to regular visitors.</li>
+									<li><strong>Interactive Learning:</strong> Engage in hands-on activities and discussions that make science accessible and exciting.</li>
+									<li><strong>Unforgettable Memories:</strong> Create lasting memories as you explore one of the world’s most important fossil sites.</li>
+								</ul>
+								<h2>Tour Details  </h2>
+								<ul>
+									<li><strong>Duration:</strong> Customizable (half-day, full-day, or multi-day options available).</li>
+									<li><strong>Group Size:</strong> Private or small groups to ensure a personalized experience.</li>
+									<li><strong>Inclusions:</strong> Transportation, expert guide, field equipment, and educational materials.</li>
+									<li><strong>What to Bring:</strong> Comfortable clothing, sturdy shoes, sunscreen, water, and a sense of adventure!</li>
+								</ul>
+								<h2>How to Book Your Tour</h2>
+								<p>Our tours are fully customizable to meet your interests and availability. To plan your unique adventure:  </p>
+								<ul>
+									<li><strong>1. Contact Us:</strong> Reach out to Dr. Ricardo N. Martinez to discuss your preferences and schedule.</li>
+									<li><strong>2. Plan Your Experience:</strong> We’ll work with you to design a tour that matches your interests, whether you’re a casual visitor, a student, or a science enthusiast.</li>
+									<li><strong>3. Explore Ischigualasto:</strong> Embark on a journey through time and discover the secrets of the Triassic era.</li>
+								</ul>
+
+								<p><b>Contact today to reserve your spot or request more information. Let’s explore Ischigualasto together!  </b></p>
+								<br>
+								<h3><strong>Testimonials</strong></h3>
+								<blockquote>
+									<em>“Dr. Martinez’s tour was the highlight of our trip to Argentina. His knowledge and passion for paleontology made the experience unforgettable.”</em>  
+									<br>— <strong>Sarah T., USA</strong>
+								</blockquote>
+								<blockquote>
+									<em>“A truly unique opportunity to explore Ischigualasto like a paleontologist. Highly recommended!”</em>  
+									<br>— <strong>James L., UK</strong>
+								</blockquote>
+							</article>
+							<article id="gallery" class="galeria">
+								<div class="grid">
+									<div class="grid-item grid-item1"></div>
+									<div class="grid-item grid-item2"></div>
+									<div class="grid-item grid-item3"></div>
+									<div class="grid-item grid-item4"></div>
+									<div class="grid-item grid-item5"></div>
+									<div class="grid-item grid-item6"></div>
+									<div class="grid-item grid-item7"></div>
+									<div class="grid-item grid-item8"></div>
+								</div>
+							</article>
+						<!-- About -->
+							<article id="about" >
+								<h2 >About me</h2>
+								<span class="image main"><img src="images/RMartinez16.jpg" alt=""  style="width: 45%;"/></span>
+								<p>I am Dr. <a href="https://es.wikipedia.org/wiki/Ricardo_N._Mart%C3%ADnez" target="_blank">Ricardo N. Martinez</a> , a paleontologist with over three decades of experience specializing in the Triassic fossils of Ischigualasto, Argentina. As a Licentiate and Doctor in Geological Sciences from the National University of San Juan, my research has focused on the stratigraphy, taphonomy, and evolution of early dinosaurs and other vertebrates from the Ischigualasto Formation. I have led numerous groundbreaking paleontological campaigns, resulting in the discovery of iconic species such as Eoraptor lunensis, Herrerasaurus ischigualastensis, Eodromaeus murphi, Sanjuansaurus gordilloi, which have reshaped our understanding of the dawn of the dinosaur era.</p>
+								<p>Currently, I serve as the Head of the Vertebrate Paleontology Cabinet at the Institute and Museum of Natural Sciences at the University of San Juan, where I also curate the Paleovertebrate Collection. My work has been published in leading scientific journals, including  <a href="https://www.nature.com/articles/s41586-021-03834-3" target="_blank">Nature</a> and <a href="https://www.science.org/doi/10.1126/science.1198467" target="_blank">Science</a>, and I have presented at international conferences worldwide</p>
+								<p>As a guide, I offer unique, scientifically enriched tours of Ischigualasto Provincial Park, sharing my deep knowledge of its geology, paleontology, and natural history. Whether you are a curious traveler, a student, or a fellow researcher, I invite you to join me in exploring the ancient landscapes and fossils that make Ischigualasto a global treasure. Together, we will uncover the secrets of the Triassic world and the fascinating creatures that once roamed this land.</p>
+								<br/>
+								<h3>Ricardo Martinez in the news</h3>
+								<ul>
+									<li><a href="https://www.sci.news/paleontology/pseudotherium-argentinus-07533.html" target="_blank">Pseudotherium argentinus - Sci.News</a></li>
+									<li><a href="https://www.batimes.com.ar/news/argentina/scientists-unearth-220-million-year-old-cemetery-of-dinosaur-fossils.phtml?fb_comment_id=2366771776700539_2368607506516966" target="_blank">220-million-year-old cemetery of dinosaur fossils - Buenos Aires Times</a></li>
+									<li><a href="https://www.sciencealert.com/tiny-fossilized-skull-fills-major-gap-in-early-evolution-of-lizards-snakes" target="_blank">Tiny fossilized skull fills major gap in early evolution of lizards & snakes - ScienceAlert</a></li>
+									<li><a href="https://www.sundaytimes.lk/110116/Timestwo/t2_07.html" target="_blank">Sunday Times Article</a></li>
+									<li><a href="https://gizmodo.com/intriguing-fossil-reptile-offers-clues-to-the-origin-of-1847562977" target="_blank">Intriguing fossil reptile offers clues to the origin - Gizmodo</a></li>
+									<li><a href="https://www.agenciasinc.es/Noticias/Los-pterosaurios-ya-volaban-en-el-hemisferio-sur-en-el-amanecer-de-estos-reptiles" target="_blank">Pterosaurs flew in the southern hemisphere at their dawn - Agencia SINC</a></li>
+									<li><a href="https://www.sci.news/paleontology/taytalura-alcoberi-10001.html" target="_blank">Taytalura alcoberi - Sci.News</a></li>
+								</ul>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact" >
+								<h2 class="major">Contact</h2>
+								<form id="contact-form" method="post">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" id="enviar" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+					
+							</article>
+
+						<!-- Elements -->
+							
+
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p>&copy; 2024 Ischigualasto Tours. All rights reserved.</p>
+				</footer>
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

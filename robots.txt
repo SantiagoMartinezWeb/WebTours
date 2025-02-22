@@ -1,0 +1,10 @@
+<!-- robots.txt -->
+User-agent: *
+Allow: /
+Sitemap: https://ischigualasto.com.ar/sitemap.xml
+
+# Evitar indexación de archivos y directorios específicos
+Disallow: /assets/
+Disallow: /images/
+Disallow: /*.js$
+Disallow: /*.css$
